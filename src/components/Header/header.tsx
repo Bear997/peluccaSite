@@ -10,7 +10,7 @@ export default component$(() => {
   });
   return (
     <div class="fixed z-10 flex w-full justify-between bg-transparent p-4 ">
-      <div class="hover:scale-125 hover:rotate-[360deg] transition-all duration-1000 ease-in-out">
+      <div class="hover:scale-125 hover:rotate-[360deg] transition-all duration-1000 ease-in-out" onClick$={()=> handleNav('home')} >
         <a href="#">
           <img class="w-20 h-20 rounded-full" src={logo} alt="logo" />
         </a>
