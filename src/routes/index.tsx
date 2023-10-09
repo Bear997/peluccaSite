@@ -17,11 +17,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Pelucca Brothers",
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
+      content: "Odontotecnici di Roccagorga che antani neiwenfoenvnvnwindvnew",
     },
   ],
 };
