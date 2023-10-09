@@ -1,3 +1,12 @@
+name: Deploy on GitHub Pages
+run-name: ${{ github.actor }} Request deploy on GitHub Pages 🚀
+on:
+  push:
+    braches: ['master', 'develop']
+
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build
