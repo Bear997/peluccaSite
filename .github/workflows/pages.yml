@@ -1,0 +1,27 @@
+name: Deploy on GitHub Pages
+run-name: ${{ github.actor }} Request deploy on GitHub Pages 🚀
+on:
+  push:
+    braches: ['master', 'develop']
+
+permissions:
+  contents: write
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+
+      - name: Install dependences 📚
+        run: npm install --read-only-lockfile
+
+      - name: Build 🔨
+        run: npm run build.client
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
