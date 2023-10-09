@@ -7,7 +7,7 @@ export default component$(() => {
       style="background-image: url('images/mainImage.jpg');"
     >
       <div
-        class="cursor-pointer rounded-lg border-4 border-solid p-4 transition-all duration-500
+        class="cursor-pointer rounded-lg border-4 border-solid p-2 transition-all duration-500
         hover:bg-white hover:text-red-400 hover:scale-110"
       >
         <button class="text-lg font-bold">Richiedi un Preventivo</button>
