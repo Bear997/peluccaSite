@@ -23,7 +23,7 @@ export const head: DocumentHead = {
   meta: [
     {
       name: "description",
-      content: "Odontotecnici di Roccagorga che antani neiwenfoenvnvnwindvnew",
+      content: "Odontotecnici di Roccagorga",
     },
   ],
 };
