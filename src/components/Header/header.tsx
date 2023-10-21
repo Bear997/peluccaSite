@@ -1,6 +1,7 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 import { scrollTo } from "~/Utils/utils";
-
+import MobileMenu from "./mobileMenu";
+const navigationLabel = ["Chi Siamo", "Contattaci", "Servizi"];
 export default component$(() => {
   const logo = "images/logo.png";
   const currentNav = useSignal("Home");
@@ -9,44 +10,38 @@ export default component$(() => {
     scrollTo(id);
   });
   return (
-    <div class="fixed z-10 flex w-full justify-between bg-transparent p-4 ">
-      <div class="hover:scale-125 hover:rotate-[360deg] transition-all duration-1000 ease-in-out" onClick$={()=> handleNav('home')} >
+    <div class="fixed z-10 flex w-full justify-between bg-transparent p-4 backdrop-blur-sm ">
+      <div
+        class="transition-all duration-1000 ease-in-out hover:rotate-[360deg] hover:scale-125"
+        onClick$={() => handleNav("home")}
+      >
         <a href="#">
-          <img class="rounded-full" width={80} height={80} src={logo} alt="logo" />
+          <img
+            class="rounded-full"
+            width={60}
+            height={60}
+            src={logo}
+            alt="logo"
+          />
         </a>
       </div>
-      <div class="flex">
+      <MobileMenu />
+      <div class="hidden sm:flex">
         <ul class=" flex list-none items-center justify-center gap-10 text-2xl text-gray-50">
-          <li>
-            <button
-              class={`cursor-pointer ${
-                currentNav.value === "ChiSiamo" ? "text-red-500" : "text-white"
-              }`}
-              onClick$={() => handleNav("ChiSiamo")}
-            >
-              Chi Siamo
-            </button>
-          </li>
-          <li>
-            <button
-              class={`cursor-pointer ${
-                currentNav.value === "Contattaci" ? "text-red-500" : "text-white"
-              }`}
-              onClick$={() => handleNav("Contattaci")}
-            >
-              Contattaci
-            </button>
-          </li>
-          <li>
-            <button
-              class={`cursor-pointer ${
-                currentNav.value === "Servizi" ? "text-red-500" : "text-white"
-              }`}
-              onClick$={() => handleNav("Servizi")}
-            >
-              Servizi
-            </button>
-          </li>
+          {navigationLabel.map((l, index) => {
+            return (
+              <li key={index}>
+                <button
+                  class={`cursor-pointer ${
+                    currentNav.value === l ? "text-slate-400" : "text-white"
+                  }`}
+                  onClick$={() => handleNav(l)}
+                >
+                  {l}
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
