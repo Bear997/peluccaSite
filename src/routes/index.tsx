@@ -9,12 +9,12 @@ import MainView from "~/components/MainView/mainView";
 
 export default component$(() => {
   return (
-    <>
+    <div class="overflow-x-hidden">
     <Header />
     <MainView />
     <ChiSiamo />
     <Footer />
-    </>
+    </div>
   );
 });
 

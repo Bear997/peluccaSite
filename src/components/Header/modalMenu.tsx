@@ -14,7 +14,7 @@ export default component$<{ showModal: Signal<boolean> }>((props) => {
   });
   return (
     <div
-      class={`fixed bottom-0 left-0 top-0 z-20 flex w-full items-center justify-center bg-black bg-opacity-50 p-10 backdrop-blur-md ${
+      class={`fixed bottom-0 left-0 top-0 right-0 z-20 flex w-full h-screen items-center justify-center bg-black bg-opacity-50 p-10 backdrop-blur-md ${
         props.showModal.value ? "flex" : "hidden"
       }`}
     >
