@@ -1,21 +1,31 @@
 import { $, component$, useSignal } from "@builder.io/qwik";
 import { scrollTo } from "~/Utils/utils";
 import MobileMenu from "./mobileMenu";
+import { useNavigate, useLocation, Link } from "@builder.io/qwik-city";
+import { LuImage } from "@qwikest/icons/lucide";
 const navigationLabel = ["Chi Siamo", "Contattaci", "Servizi"];
 export default component$(() => {
+  const navigation = useNavigate();
   const logo = "images/logo.png";
   const currentNav = useSignal("Home");
-  const handleNav = $((id: string) => {
+  const location = useLocation();
+
+  const handleNav = $(async (id: string) => {
     currentNav.value = id;
-    scrollTo(id);
+    console.log("id--->", id, "pathname ---->", location.url.pathname);
+    // if (id === "Gallery") {
+    //   navigation("/gallery");
+    // }
+    // if (location.url.pathname !== "/") {
+    //   await navigation("/");
+    // }
+    await scrollTo(id);
   });
+
   return (
-    <div class="fixed z-10 flex w-full justify-between bg-transparent p-4 backdrop-blur-sm ">
-      <div
-        class="transition-all duration-1000 ease-in-out hover:rotate-[360deg] hover:scale-125"
-        onClick$={() => handleNav("home")}
-      >
-        <a href="#">
+    <div class="fixed z-10 flex h-20 w-full justify-between bg-transparent p-4 backdrop-blur-sm ">
+      <div onClick$={() => handleNav("home")}>
+        <a href="/">
           <img
             class="rounded-full"
             width={60}
@@ -26,9 +36,9 @@ export default component$(() => {
         </a>
       </div>
       <MobileMenu />
-      <div class="hidden sm:flex">
+      <div class="hidden sm:flex justify-center items-center">
         <ul class=" flex list-none items-center justify-center gap-10 text-2xl text-gray-50">
-          {navigationLabel.map((l, index) => {
+        {navigationLabel.map((l, index) => {
             return (
               <li key={index}>
                 <button
@@ -43,6 +53,10 @@ export default component$(() => {
             );
           })}
         </ul>
+        <Link class="flex justify-center items-center flex-col ml-5 text-white" href="/gallery">
+          <LuImage class="w-10 h-10 "/>
+          gallery
+        </Link>
       </div>
     </div>
   );

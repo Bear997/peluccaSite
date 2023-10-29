@@ -17,12 +17,12 @@ const Icon = component$<{ label: string }>((props) => {
 
 export default component$(() => {
   return (
-<div class="bg-white flex flex-col justify-center items-center  sm:flex-row sm:gap-10">
+<div class="bg-white flex flex-col justify-center items-start  sm:flex-row sm:gap-10">
         {Object.entries(social).map((kv, index) => {
           const socialLabel = kv[0];
           const socialLink = kv[1];          
           return (
-            <button key={index} onClick$={()=>navToLink(socialLink)} class="group flex gap-4 p-2 rounded-xl  hover:bg-black ">
+            <button key={index} onClick$={()=>navToLink(socialLink)} class="group flex gap-4 p-2 rounded-xl  hover:bg-black">
               <Icon label={socialLabel} /> <p class="self-center font-bold text-lg group-hover:text-slate-400">{socialLabel.toUpperCase()}</p>
             </button>
           );

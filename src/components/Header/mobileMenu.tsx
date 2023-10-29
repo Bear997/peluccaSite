@@ -5,7 +5,7 @@ export default component$(() => {
   const showModal = useSignal(false)
   
   return (
-    <div class="flex sm:hidden">
+    <div class="flex sm:hidden ">
       <LuMenu class="w-8 h-8" color="white" onClick$={()=>showModal.value=true}/>
       <ModalMenu showModal={showModal}/>
     </div>

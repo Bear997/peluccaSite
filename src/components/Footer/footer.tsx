@@ -6,7 +6,7 @@ import { onClickMail } from "~/Utils/utils";
 export default component$(() => {
   return (
     <div
-      id="footer"
+      id="Contattaci"
       class="flex h-screen  flex-col gap-5 w-full items-center justify-evenly p-5 sm:flex-col sm:h-auto"
     >
       <div class="w-72">
